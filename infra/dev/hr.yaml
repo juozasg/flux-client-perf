@@ -13,6 +13,6 @@ spec:
         kind: HelmRepository
         name: podinfo
         namespace: default
-      interval: 5
+      interval: 5s
   values:
     replicaCount: 2
