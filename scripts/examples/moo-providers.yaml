@@ -1,0 +1,60 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  creationTimestamp: "2023-08-31T20:20:40Z"
+  finalizers:
+  - finalizers.fluxcd.io
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: slack
+  namespace: flux-system
+  resourceVersion: "15253556"
+  uid: 617f2b80-9cc1-4b89-a247-826389edd018
+spec:
+  channel: gitops
+  secretRef:
+    name: slack-token
+  type: slack
+status:
+  conditions:
+  - lastTransitionTime: "2023-08-31T20:21:39Z"
+    message: Initialized
+    observedGeneration: 1
+    reason: Succeeded
+    status: "True"
+    type: Ready
+  observedGeneration: 1
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  creationTimestamp: "2023-08-31T20:20:40Z"
+  finalizers:
+  - finalizers.fluxcd.io
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: flux-sync
+  namespace: flux-system
+  resourceVersion: "15253559"
+  uid: a44fcf92-5032-4190-81d9-7c047c435bb8
+spec:
+  address: https://github.com/kingdonb/bootstrap-repo
+  secretRef:
+    name: github-bootstrap-token
+  type: github
+status:
+  conditions:
+  - lastTransitionTime: "2023-08-31T20:21:39Z"
+    message: Initialized
+    observedGeneration: 1
+    reason: Succeeded
+    status: "True"
+    type: Ready
+  observedGeneration: 1
+kind: List
+metadata:
+resourceVersion: ""

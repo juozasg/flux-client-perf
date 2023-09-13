@@ -1,0 +1,140 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  creationTimestamp: "2023-08-31T20:20:40Z"
+  finalizers:
+  - finalizers.fluxcd.io
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: bootstrap-repo
+  namespace: flux-system
+  resourceVersion: "15253735"
+  uid: 35720e9d-0cb1-4449-994d-6e7cb5990537
+spec:
+  eventSeverity: info
+  eventSources:
+  - kind: Kustomization
+    name: aks-kuberkingdon2
+    namespace: flux-system
+  - kind: Kustomization
+    name: gke-geekingdon
+    namespace: flux-system
+  - kind: Kustomization
+    name: apps
+    namespace: flux-system
+  - kind: Kustomization
+    name: deis
+    namespace: flux-system
+  - kind: Kustomization
+    name: infrastructure
+    namespace: flux-system
+  - kind: Kustomization
+    name: metallb
+    namespace: flux-system
+  - kind: Kustomization
+    name: my-secrets
+    namespace: flux-system
+  - kind: Kustomization
+    name: cluster-api-secrets
+    namespace: flux-system
+  providerRef:
+    name: flux-sync
+status:
+  conditions:
+  - lastTransitionTime: "2023-08-31T20:22:27Z"
+    message: Initialized
+    observedGeneration: 1
+    reason: Succeeded
+    status: "True"
+    type: Ready
+  observedGeneration: 1
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  creationTimestamp: "2023-08-31T20:20:40Z"
+  finalizers:
+  - finalizers.fluxcd.io
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  name: on-call-webapp
+  namespace: flux-system
+  resourceVersion: "15253738"
+  uid: e7c75d2c-615f-4387-a0ac-b098a60d94cb
+spec:
+  eventSeverity: info
+  eventSources:
+  - kind: GitRepository
+    name: '*'
+  - kind: Kustomization
+    name: '*'
+  - kind: HelmRelease
+    name: '*'
+  - kind: Kustomization
+    name: '*'
+    namespace: podinfo-staging
+  - kind: Kustomization
+    name: '*'
+    namespace: traefik-staging
+  - kind: ImageRepository
+    name: '*'
+    namespace: planet-store
+  - kind: ImageUpdateAutomation
+    name: '*'
+    namespace: planet-store
+  - kind: HelmRelease
+    name: '*'
+    namespace: minio-juozas
+  - kind: HelmRelease
+    name: '*'
+    namespace: minio-stage
+  - kind: HelmRelease
+    name: '*'
+    namespace: monitoring
+  - kind: HelmRelease
+    name: '*'
+    namespace: podinfo
+  - kind: HelmRelease
+    name: '*'
+    namespace: ingress-nginx
+  - kind: HelmRelease
+    name: '*'
+    namespace: harbor
+  - kind: HelmRelease
+    name: '*'
+    namespace: ex7
+  - kind: HelmRelease
+    name: '*'
+    namespace: deis
+  - kind: HelmRelease
+    name: '*'
+    namespace: chartmuseum
+  - kind: HelmChart
+    name: '*'
+  - kind: HelmRepository
+    name: '*'
+  - kind: ImageUpdateAutomation
+    name: '*'
+  - kind: ImagePolicy
+    name: '*'
+  - kind: ImageRepository
+    name: '*'
+  exclusionList:
+  - ^Dependencies do not meet ready condition, retrying in \d+s$
+  - .*skipped$
+  providerRef:
+    name: slack
+  summary: Internal (staging) cluster ROOT events
+status:
+  conditions:
+  - lastTransitionTime: "2023-08-31T20:22:27Z"
+    message: Initialized
+    observedGeneration: 1
+    reason: Succeeded
+    status: "True"
+    type: Ready
+  observedGeneration: 1
