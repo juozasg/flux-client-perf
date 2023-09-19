@@ -4,10 +4,10 @@ metadata:
   name: podinfo
   namespace: default
 spec:
-  interval: 5m
+  interval: 2s
   chart:
     spec:
-      chart: podinfo
+      chart: podinfo-bad
       version: '4.0.0'
       sourceRef:
         kind: HelmRepository
@@ -15,4 +15,5 @@ spec:
         namespace: default
       interval: 1m
   values:
-    replicaCount: 2
+    replicaCount: 1
+    unready: true
