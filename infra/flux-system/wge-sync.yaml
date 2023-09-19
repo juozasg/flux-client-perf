@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: wge-linkerd
+  namespace: default
+spec:
+  interval: 30s
+  path: ./wge/linkerd
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
