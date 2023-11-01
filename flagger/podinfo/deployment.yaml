@@ -80,7 +80,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: podinfo
-  namespace: test
+  namespace: default
 spec:
   maxReplicas: 4
   metrics:

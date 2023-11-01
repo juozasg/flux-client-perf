@@ -16,11 +16,6 @@ k rollout restart deployment coredns -n kube-system
 
 kubectl delete pod dnstools; kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest dnstools
 
-k attach dnstools -it
-
-
-
-
 
 
 #https://github.com/kingdon-ci/fleet-infra/blob/main/examples/production-basic/coredns/coredns-custom.yaml
