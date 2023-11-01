@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: flux-system
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: weavegitops.demo
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: portal-weave-gitops
+                port:
+                  number: 9001
+            path: /

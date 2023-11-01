@@ -8,8 +8,8 @@ lsof -i tcp:443
 
 k edit cm coredns -oyaml -n kube-system
 
-rewrite name weavegitops.demo ingress-nginx-controller.ingress-nginx.svc.cluster.local
-rewrite name podinfo.demo ingress-nginx-controller.ingress-nginx.svc.cluster.local
+# rewrite name weavegitops.demo ingress-nginx-controller.ingress-nginx.svc.cluster.local
+# rewrite name podinfo.demo ingress-nginx-controller.ingress-nginx.svc.cluster.local
 
 k rollout restart deployment coredns -n kube-system
 
