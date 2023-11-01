@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: flux-system
+  name: weave-gitops-interop
+data:
+  portalUrl: https://mccp.management-cluster.example.com
+  wgeClusterName: management-cluster
+  clusterName: dev-cluster-01

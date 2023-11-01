@@ -2,17 +2,18 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
-  namespace: default
+  namespace: test
 spec:
   interval: 2s
   chart:
     spec:
-      chart: podinfo-bad
+      # chart: podinfo-bad
+      chart: podinfo
       version: '4.0.0'
       sourceRef:
         kind: HelmRepository
         name: podinfo
-        namespace: default
+        namespace: test
       interval: 1m
   values:
     replicaCount: 1
