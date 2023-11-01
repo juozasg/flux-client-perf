@@ -34,7 +34,7 @@ spec:
         name: portal
   interval: 1h0m0s
   values:
-    WEAVE_GITOPS_FEATURE_TELEMETRY: "true"
+    WEAVE_GITOPS_FEATURE_TELEMETRY: "false"
     adminUser:
       create: true
       passwordHash: $2a$10$NLmMHz5EDD4uh4zn3wrMOuw.0THlwymrCf4AP/Ndk0UuCmnoT02I2
