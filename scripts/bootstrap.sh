@@ -5,3 +5,9 @@ flux bootstrap github \
   --branch=main \
   --path=infra \
   --personal
+
+
+## delete
+kubectl patch kustomization/flux-system -n flux-system \
+    --type json \
+    --patch='[ { "op": "remove", "path": "/metadata/finalizers" } ]'
