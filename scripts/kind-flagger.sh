@@ -25,12 +25,12 @@ helm upgrade -i flagger flagger/flagger \
 
 # install app 
 
-# kubectl create ns test
 # kubectl apply -k https://github.com/fluxcd/flagger//kustomize/podinfo?ref=main
 
+# kubectl create ns test
 helm upgrade -i flagger-loadtester flagger/loadtester \
---namespace=test
-
+--namespace=default
+# k ge
 kubectl apply -f ./podinfo-ingress.yaml
 kubectl apply -f ./podinfo-canary.yaml
 
