@@ -7,6 +7,10 @@ flux bootstrap github \
   --personal
 
 
+
+ k port-forward Deployment/podinfo 8080:9898
+ 
+
 ## delete
 kubectl patch kustomization/flux-system -n flux-system \
     --type json \
